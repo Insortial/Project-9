@@ -1,0 +1,9 @@
+class Main {
+	function void main() {
+		var BinaryConverter r;
+		var String s;
+		let s = "Hello my name is john";
+		let r =  BinaryConverter.new(s);
+		return;
+	}
+}

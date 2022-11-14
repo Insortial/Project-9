@@ -1,0 +1,53 @@
+class BinaryConverter {
+	field String input;
+	field String output;
+	field array binaryArray;
+	field int arraySize;
+
+	constructor BinaryConverter new(String in) {
+		let input = in;
+		do Output.printString("Original String: ");
+		do Output.printString(in);
+		do Output.println();
+		do Output.println();
+		
+		let arraySize = 8;
+		let binaryArray = Array.new(arraySize);
+		let binaryArray[0] = 128;
+		let binaryArray[1] = 64;
+		let binaryArray[2] = 32;
+		let binaryArray[3] = 16;
+		let binaryArray[4] = 8;
+		let binaryArray[5] = 4;
+		let binaryArray[6] = 2;
+		let binaryArray[7] = 1;
+		do convert();
+		return this;
+	}
+	
+	method void convert() {
+		var int i;
+		var int charValue;
+		var int j;
+		
+		let i = 0;
+		do Output.printString("Binary Output: ");
+		while (i < input.length()) {
+			let charValue = input.charAt(i);
+			let j = 0;
+			while (j < arraySize) {
+				if ((binaryArray[j] < charValue) | (charValue = binaryArray[j])) {
+					let charValue = charValue - binaryArray[j];
+					do Output.printInt(1);
+				} 
+				else {
+					do Output.printInt(0);
+				}
+				let j = j + 1;
+			}
+			do Output.printString(" ");
+			let i = i + 1;
+		}
+		return;
+	}
+}
